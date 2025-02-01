@@ -1,8 +1,9 @@
 def main():    
     text = read_contents()
     words = word_count(text)
-    characters = character_counter(text)
-    print(characters)
+    num_characters = character_counter(text)
+    sort = sort_characters(num_characters)
+    print(sort)
 
 def read_contents():
     with open("books/frankenstein.txt") as f:
@@ -21,15 +22,20 @@ def character_counter(book):
         num_characters.update({letter : counter})
     return num_characters
 
+def sort_on(characters):
+    for letter in characters:
+        key = characters[letter]
+    return key
 
-
-
-
-
-
-
-
-
+def sort_characters(characters):
+    character_dictionaries = []
+    for letter in characters:
+        key = characters[letter]
+        if letter.isalpha() == True:
+            character_dictionaries.append({letter : key})    
+    for dict in character_dictionaries:
+        character_dictionaries.sort(reverse=True, key=sort_on)
+    return character_dictionaries
 
 main()
 
