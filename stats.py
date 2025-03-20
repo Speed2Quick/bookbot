@@ -6,11 +6,17 @@ def word_count(text):
     return counter
 
 def character_counter(text):
-    characters = list("abcdefghijklmnopqrstuvwyxz ,.!?")
-    letter_counter = {}
+    characters = list("abcdefghijklmnopqrstuvwyxzæâêëô")
+    letter_dict = {}
     lower_cased_text = text.lower()
     counter = 0
-    for letter in characters:
+    for letter in characters:  
         counter = lower_cased_text.count(letter)
-        letter_counter[letter] = counter
-    return letter_counter
+        letter_dict[letter] = counter
+    return letter_dict
+
+def sorter(characters):
+    sorted_characters = sorted(characters.items(), key=lambda item: item[1], reverse=True)
+    return sorted_characters
+
+
